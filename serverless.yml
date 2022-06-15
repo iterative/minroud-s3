@@ -1,0 +1,21 @@
+service: minroud
+
+frameworkVersion: ^3.12.0
+
+provider:
+  name: aws
+  runtime: python3.9
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: [s3:PutObject, s3:PutObjectAcl]
+          Resource: !Join ["", ["arn:aws:s3:::", Ref: ServerlessDeploymentBucket, "/*"]]
+
+functions:
+  main:
+    url: true
+    handler: main.handler
+    environment:
+      BUCKET: !Ref ServerlessDeploymentBucket
+      REGION: ${aws:region}
