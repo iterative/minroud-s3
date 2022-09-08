@@ -1,5 +1,5 @@
 # Minroud[^1]
-Simple [serverless](https://www.serverless.com) image hosting
+Simple [serverless](https://www.serverless.com) image hosting.
 
 ## Deployment
 
@@ -8,10 +8,20 @@ $ serverless deploy
 endpoint: https://{identifier}.lambda-url.{region}.on.aws
 ```
 
+See [this get started guide](https://www.serverless.com/framework/docs/getting-started) for more detailed instructions.
+
 ## Usage
 
+### With `curl`
 ```console
 $ curl {endpoint} --header "Content-Type: image/png" --data-binary @image.png
+https://{bucket}.s3.{region}.amazonaws.com/{hash}
+```
+
+### With [`cml publish`](https://cml.dev/doc/ref/publish)
+
+```console
+$ cml publish --url={endpoint} image.png
 https://{bucket}.s3.{region}.amazonaws.com/{hash}
 ```
 
