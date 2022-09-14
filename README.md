@@ -26,7 +26,7 @@ https://{bucket}.s3.{region}.amazonaws.com/{hash}
 
 #### Overwriting files
 
-Storage is [content-addressable](https://en.wikipedia.org/wiki/Content-addressable_storage) by default, naming objects after their contents' SHA-256 hash. To return a static/unchanging URL (even after overwriting the contents of the object) provide a `Content-Seed` header; objects will be named after the header's value SHA-256 instead.
+Storage is [content-addressable](https://en.wikipedia.org/wiki/Content-addressable_storage) by default, naming objects after their contents' SHA-256 hash. To return a static/unchanging URL (even after overwriting an object's contents) provide a `Content-Seed` header; objects will be named after this header's SHA-256 hash instead.
 
 ```console
 $ curl {endpoint} --data-binary @file_v1 --header "Content-Seed: $(uuidgen)"
