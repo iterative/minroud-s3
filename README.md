@@ -18,10 +18,10 @@ $ curl {endpoint} --header "Content-Type: image/png" --data-binary @image.png
 https://{bucket}.s3.{region}.amazonaws.com/{hash}
 ```
 
-### With [`cml publish`](https://cml.dev/doc/ref/publish)
+### With [`cml comment`](https://cml.dev/doc/ref/comment)
 
 ```console
-$ cml publish --url={endpoint} image.png
+$ cml comment create --publish --publish-url={endpoint} image.png
 https://{bucket}.s3.{region}.amazonaws.com/{hash}
 ```
 
